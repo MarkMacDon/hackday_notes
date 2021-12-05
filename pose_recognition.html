@@ -20,7 +20,7 @@
         
         // the link to your model provided by Teachable Machine export panel
         const URL = "./my_model/";
-        const nodeURL = 'http://localhost:8080/'
+        const nodeURL = 'http://172.20.10.6:8082'
         let lastDirection = ''
 
         let model, webcam, ctx, labelContainer, maxPredictions;
@@ -72,9 +72,9 @@
                 labelContainer.childNodes[i].innerHTML = classPrediction;
 
                     const predStr = classPrediction.toString();
-                    if(predStr.includes('1.00')){
+                    // TODO make this recognize range 
+                        if(predStr.includes('1.00')){
                         if (predStr != lastDirection){
-                            console.log(predStr)
                             var xhr = new XMLHttpRequest();
                             xhr.open("POST", nodeURL, true);
                             xhr.setRequestHeader('Content-Type', 'application/json');

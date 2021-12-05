@@ -25,13 +25,14 @@ url = 'http://localhost:8080/'
 headers = {'Content-type': 'application/json'}
 # Format the body as defined in header (json)
 body = json.dumps({
-  "form_Field": 678
+  "coords": [678]
 
 })
 # Make the POST request
 postRes = requests.post(url, headers=headers, json=body)
 print(postRes.json())
 sys.stdout.flush()
+
 
 # # Again, this is how you add the data to the spawn process stream
 # print(f'Post Response {postRes.content}')

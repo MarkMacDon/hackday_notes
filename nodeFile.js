@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const app = express();  
 const { spawn } = require('child_process');
 
 var bodyParser = require('body-parser')
@@ -28,8 +28,8 @@ var responseJson = {}
 
 app.get(urlString,(req,res) => {
     //TODO get coords from snake game
-    var snakeCoordinates = ``
-    responseJson['coords'] = snakeCoordinates
+    // var snakeCoordinates = ``
+    // responseJson['coords'] = snakeCoordinates
     res.json(responseJson);
 
     console.log('This will console.log every time there is a GET request')
@@ -55,7 +55,10 @@ app.post(urlString, jsonParser, function (req, res) {
     // Handles coordinates
     if (bodyString.includes('coordinates')) { // is coordinates
         responseJson['coords'] = bodyString
-    }
+        console.log(`HERHERHE ${bodyString}`)
+    }  
+
+    console.log(`POST REQUEST BODY STRING ${bodyString}`)
     
     res.json(responseJson)
   })
@@ -64,3 +67,10 @@ var port = 8080;
 app.listen(port);
 console.log(`Server started on port ${port}`); 
  
+
+
+
+
+
+/// ML model (posting dirction) Y => Node (repository) Y <=> 
+// snake game (outputting coords) Y => Node (repository) => Pi (unpack overlay on new grid) 
