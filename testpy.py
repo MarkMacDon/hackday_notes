@@ -22,7 +22,7 @@ url = 'http://localhost:8080/'
 ### Making a POST request ###
 
 # Define the body content type in the header
-headers = {'Content-type': 'asd'}
+headers = {'Content-type': 'application/json'}
 # Format the body as defined in header (json)
 body = json.dumps({
   "form_Field": 678
